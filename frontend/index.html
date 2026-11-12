@@ -1,0 +1,195 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskFlow | Task Manager</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="app-container">
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <span class="logo-icon">✓</span>
+                <h2>TaskFlow</h2>
+            </div>
+
+            <nav>
+                <p class="nav-heading">WORKSPACE</p>
+                <a href="#" class="nav-link active">▦ Dashboard</a>
+                <a href="#task-section" class="nav-link">☷ My Tasks</a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <p>Stay organized.</p>
+                <span>One task at a time.</span>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+
+            <!-- Header -->
+            <header class="topbar">
+                <div>
+                    <p class="greeting">YOUR WORKSPACE</p>
+                    <h1>My Dashboard</h1>
+                </div>
+
+                <button class="add-task-btn" id="open-task-form">
+                    + New Task
+                </button>
+            </header>
+
+            <!-- Statistics -->
+            <section class="stats-grid">
+
+                <div class="stat-card">
+                    <p>Total Tasks</p>
+                    <h2 id="total-count">0</h2>
+                </div>
+
+                <div class="stat-card">
+                    <p>Pending</p>
+                    <h2 id="pending-count">0</h2>
+                </div>
+
+                <div class="stat-card">
+                    <p>Completed</p>
+                    <h2 id="completed-count">0</h2>
+                </div>
+
+                <div class="stat-card">
+                    <p>Overdue</p>
+                    <h2 id="overdue-count">0</h2>
+                </div>
+
+            </section>
+
+            <!-- Task Form -->
+            <section class="task-form-section" id="task-form-section">
+
+                <div class="section-heading">
+                    <h2 id="form-heading">Create New Task</h2>
+                    <button id="close-task-form" type="button">✕</button>
+                </div>
+
+                <form id="task-form">
+
+                    <input type="hidden" id="task-id">
+
+                    <div class="form-group">
+                        <label for="task-title">Task Title *</label>
+                        <input
+                            type="text"
+                            id="task-title"
+                            placeholder="What needs to be done?"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="task-description">Description</label>
+                        <textarea
+                            id="task-description"
+                            placeholder="Add some details..."
+                        ></textarea>
+                    </div>
+
+                    <div class="form-row">
+
+                        <div class="form-group">
+                            <label for="task-due-date">Due Date</label>
+                            <input type="date" id="task-due-date">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="task-priority">Priority</label>
+                            <select id="task-priority">
+                                <option value="Low">Low</option>
+                                <option value="Medium" selected>Medium</option>
+                                <option value="High">High</option>
+                            </select>
+                        </div>
+
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="button" id="cancel-task">Cancel</button>
+                        <button type="submit" id="save-task-btn">
+                            Save Task
+                        </button>
+                    </div>
+
+                </form>
+            </section>
+
+            <!-- Task List -->
+            <section class="tasks-section" id="task-section">
+
+                <div class="tasks-header">
+                    <div>
+                        <p class="greeting">YOUR PRODUCTIVITY</p>
+                        <h2>My Tasks</h2>
+                    </div>
+                </div>
+
+                <!-- Search and Filters -->
+                <div class="task-controls">
+
+                    <input
+                        type="search"
+                        id="search-input"
+                        placeholder="Search your tasks..."
+                    >
+
+                    <select id="sort-select">
+                        <option value="newest">Newest First</option>
+                        <option value="dueDate">Due Date</option>
+                        <option value="priority">Priority</option>
+                    </select>
+
+                </div>
+
+                <div class="filter-tabs">
+                    <button class="filter-btn active" data-filter="All">
+                        All
+                    </button>
+
+                    <button class="filter-btn" data-filter="Pending">
+                        Pending
+                    </button>
+
+                    <button class="filter-btn" data-filter="Completed">
+                        Completed
+                    </button>
+                </div>
+
+                <!-- Tasks will appear here -->
+                <div id="task-list">
+
+                    <div class="empty-state">
+                        <h3>No tasks yet</h3>
+                        <p>Create your first task to get started.</p>
+                    </div>
+
+                </div>
+
+            </section>
+
+            <footer class="footer">
+                Made for better productivity · TaskFlow
+            </footer>
+
+        </main>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
